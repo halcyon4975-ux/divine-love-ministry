@@ -1,0 +1,111 @@
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">
+        <svg viewBox="0 0 30 18" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round" stroke-width="3"><polyline points="3,12 12,4 21,12" stroke="#2ba6de"/><line x1="8" y1="16" x2="26" y2="7" stroke="currentColor"/></g></svg>
+        Gallery
+      </p>
+      <h1>Our work in pictures</h1>
+      <p>Authentic moments from health outreaches, community events, youth sports, and acts of care across the Central Region.</p>
+    </div>
+    <svg class="page-hero__ribbon" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"><polyline points="10,55 50,20 90,55"/><polyline points="10,75 50,40 90,75"/><polyline points="10,95 50,60 90,95"/></g></svg>
+  </section>
+
+  <section class="section" aria-labelledby="gallery-grid-title">
+    <div class="container">
+      <h2 id="gallery-grid-title" class="visually-hidden">Photo gallery</h2>
+
+      <!-- Category filters -->
+      <div class="gallery-filters" role="group" aria-label="Filter gallery by category">
+        <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="health" aria-pressed="false">Health outreach</button>
+        <button class="filter-btn" data-filter="community" aria-pressed="false">Community events</button>
+        <button class="filter-btn" data-filter="youth" aria-pressed="false">Youth sports</button>
+        <button class="filter-btn" data-filter="support" aria-pressed="false">Donations &amp; support</button>
+      </div>
+
+      <!--
+        HOW TO ADD YOUR PHOTOS:
+        Inside each .img-slot below, add your image like this (keep loading="lazy"):
+        <img src="images/your-photo.jpg" alt="Describe the photo" loading="lazy">
+        The caption below each slot is already written from your notes.
+      -->
+      <div class="gallery-grid">
+
+        <button class="gallery-item reveal" data-category="health" type="button">
+          <figure>
+            <div class="img-slot img-slot--4x3" data-label="">
+            <img src="images/gallery-health-anomabo.jpg" alt="Health outreach program at Anomabo" loading="lazy">
+          </div>
+            <figcaption>Health outreach program — free screening and treatment for the people of Anomabo, Mfantseman Municipality.</figcaption>
+          </figure>
+        </button>
+
+        <button class="gallery-item reveal reveal-delay-1" data-category="health" type="button">
+          <figure>
+            <div class="img-slot img-slot--4x3" data-label="">
+            <img src="images/nhis.jpg" alt="Free NHIS registration outreach" loading="lazy">
+          </div>
+            <figcaption>Free National Health Insurance registration for the people of Eduafo, Jedu, and Abura Nkwanta — 29th December 2022.</figcaption>
+          </figure>
+        </button>
+
+        <button class="gallery-item reveal reveal-delay-2" data-category="community" type="button">
+          <figure>
+            <div class="img-slot img-slot--4x3" data-label="">
+            <img src="images/gallery-community-eoy.jpg" alt="End-of-year get-together with St. Joseph Catholic Church, Abura Nkwanta" loading="lazy">
+          </div>
+            <figcaption>End-of-year get-together, organized in collaboration with St. Joseph Catholic Church, Abura Nkwanta.</figcaption>
+          </figure>
+        </button>
+
+        <button class="gallery-item reveal" data-category="support" type="button">
+          <figure>
+            <div class="img-slot img-slot--4x3" data-label="">
+            <img src="images/sick.jpeg" alt="Illustration of a cash donation to a sick woman" loading="lazy">
+          </div>
+            <figcaption>Donation of cash support to a sick woman in the community.</figcaption>
+          </figure>
+        </button>
+
+        <button class="gallery-item reveal reveal-delay-1" data-category="support" type="button">
+          <figure>
+            <div class="img-slot img-slot--4x3" data-label="">
+            <img src="images/elderly.jpg" alt="Cash donation to an elderly woman in the community" loading="lazy">
+          </div>
+            <figcaption>Donation of cash support to an elderly woman.</figcaption>
+          </figure>
+        </button>
+
+        <button class="gallery-item reveal reveal-delay-2" data-category="youth" type="button">
+          <figure>
+            <div class="img-slot img-slot--4x3" data-label="">
+            <img src="images/gallery-youth-soccer.jpg" alt="Youth soccer game supported by Divine Love Ministry" loading="lazy">
+          </div>
+            <figcaption>Soccer for the young people of Abura Nkwanta and its surrounding villages.</figcaption>
+          </figure>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Close image viewer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <div class="lightbox__inner">
+      <div class="lightbox__media"></div>
+      <p class="lightbox__caption"></p>
+    </div>
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+    </button>
+  </div>
+
+</main>

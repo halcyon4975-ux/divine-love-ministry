@@ -1,0 +1,326 @@
+/* ============================================
+   Divine Love Ministry — layout.css
+   Header, navigation, footer, page hero
+   ============================================ */
+
+/* ---------- Header / navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  height: var(--nav-height);
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.nav__brand svg,
+.nav__brand img {
+  height: 46px;
+  width: auto;
+}
+
+.nav__list {
+  display: none;
+}
+
+.nav__toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+}
+
+.nav__toggle:focus-visible {
+  outline: 3px solid var(--blue-500);
+}
+
+.nav__toggle-bar {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu panel */
+.nav__menu {
+  position: fixed;
+  inset: var(--nav-height) 0 auto 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-lg);
+  padding: var(--sp-3) var(--sp-3) var(--sp-4);
+  transform: translateY(-8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease),
+              visibility 0.3s;
+}
+
+.nav__menu.is-open {
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav__menu .nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav__link {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  color: var(--charcoal);
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.nav__link:hover {
+  background: var(--violet-50);
+  color: var(--violet-700);
+}
+
+.nav__link[aria-current="page"] {
+  color: var(--violet-700);
+  background: var(--violet-50);
+}
+
+.nav__cta {
+  margin-top: var(--sp-2);
+}
+
+/* Desktop nav */
+@media (min-width: 960px) {
+  .nav__toggle { display: none; }
+
+  .nav__menu {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    background: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav__menu .nav__list {
+    flex-direction: row;
+    gap: 0.15rem;
+  }
+
+  .nav__link {
+    padding: 0.55rem 0.85rem;
+  }
+
+  .nav__link[aria-current="page"] {
+    background: none;
+    position: relative;
+  }
+
+  .nav__link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.2rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--violet-700);
+  }
+
+  .nav__cta {
+    margin: 0;
+    padding: 0.6rem 1.4rem;
+  }
+}
+
+/* ---------- Inner page hero ---------- */
+.page-hero {
+  background: var(--violet-800);
+  color: var(--white);
+  padding-block: var(--sp-6) var(--sp-5);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero h1 {
+  color: var(--white);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+}
+
+.page-hero p {
+  margin-top: var(--sp-2);
+  max-width: 58ch;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--fs-md);
+}
+
+.page-hero .eyebrow {
+  color: var(--blue-500);
+}
+
+.page-hero__ribbon {
+  position: absolute;
+  right: -40px;
+  bottom: -30px;
+  width: 300px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--violet-900);
+  color: rgba(255, 255, 255, 0.8);
+  padding-block: var(--sp-6) var(--sp-3);
+  font-size: var(--fs-sm);
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s var(--ease);
+}
+
+.site-footer a:hover {
+  color: var(--white);
+}
+
+.footer-grid {
+  display: grid;
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-5);
+}
+
+.footer-brand svg,
+.footer-brand img {
+  height: 52px;
+  width: auto;
+  margin-bottom: var(--sp-2);
+}
+
+.footer-brand p {
+  max-width: 34ch;
+}
+
+.footer-col h3 {
+  color: var(--white);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--sp-2);
+}
+
+.footer-col ul {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.footer-contact li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.footer-contact svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--blue-500);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: var(--sp-2);
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease),
+              transform 0.25s var(--ease);
+}
+
+.footer-social a:hover {
+  background: var(--violet-700);
+  border-color: var(--violet-700);
+  transform: translateY(-2px);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: var(--sp-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+}
+
+@media (min-width: 700px) {
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  }
+}

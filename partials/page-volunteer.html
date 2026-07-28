@@ -1,0 +1,113 @@
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">
+        <svg viewBox="0 0 30 18" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round" stroke-width="3"><polyline points="3,12 12,4 21,12" stroke="#2ba6de"/><line x1="8" y1="16" x2="26" y2="7" stroke="currentColor"/></g></svg>
+        Volunteer
+      </p>
+      <h1>Give your time. Change a life.</h1>
+      <p>Volunteers are the heartbeat of Divine Love Ministry — doctors, nurses, teachers, organizers, drivers, and everyday people with willing hands.</p>
+    </div>
+    <svg class="page-hero__ribbon" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"><polyline points="10,55 50,20 90,55"/><polyline points="10,75 50,40 90,75"/><polyline points="10,95 50,60 90,95"/></g></svg>
+  </section>
+
+  <section class="section" aria-labelledby="volunteer-form-title">
+    <div class="container form-layout">
+
+      <aside class="form-aside">
+        <div class="card">
+          <h3>Why volunteer with us?</h3>
+          <ul class="info-list" role="list" style="margin-top: 1rem;">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0 1 12 6.4 5.4 5.4 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9z"/></svg>
+              <div>
+                <strong>Serve real needs</strong>
+                <span>Health outreaches, community events, and support visits where every hand counts.</span>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.7c2.9.2 5 2.2 5 5.3"/></svg>
+              <div>
+                <strong>Join a community</strong>
+                <span>Work alongside a family of volunteers, health workers, and church groups.</span>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+              <div>
+                <strong>Use your skills</strong>
+                <span>Whatever your profession, there's a way for your talents to serve.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>What happens next?</h3>
+          <p class="text-muted" style="margin-top: 0.75rem; font-size: 0.9375rem;">After you register, a member of our team will reach out to welcome you, learn more about your availability, and match you with upcoming activities.</p>
+        </div>
+      </aside>
+
+      <div>
+        <div class="form-success" role="status" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></svg>
+          <span>Thank you for registering! Your details have been received. Our team will contact you soon to welcome you aboard.</span>
+        </div>
+
+        <form class="card form-card" data-validate novalidate aria-labelledby="volunteer-form-title">
+          <h2 id="volunteer-form-title" style="margin-bottom: 0.5rem;">Volunteer registration</h2>
+          <p class="text-muted" style="margin-bottom: 2rem;">Fields marked <span class="req" aria-hidden="true">*</span> are required.</p>
+
+          <div class="form-grid form-grid--2col">
+            <div class="form-field">
+              <label for="v-name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="v-name" name="fullName" autocomplete="name" required>
+              <p class="field-error">Please enter your full name.</p>
+            </div>
+
+            <div class="form-field">
+              <label for="v-email">Email address <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="v-email" name="email" autocomplete="email" required>
+              <p class="field-error">Please enter a valid email address.</p>
+            </div>
+
+            <div class="form-field">
+              <label for="v-phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="v-phone" name="phone" autocomplete="tel" placeholder="+233 ..." required>
+              <p class="field-error">Please enter a valid phone number.</p>
+            </div>
+
+            <div class="form-field">
+              <label for="v-location">Location <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="v-location" name="location" autocomplete="address-level2" placeholder="Town / City" required>
+              <p class="field-error">Please tell us where you're based.</p>
+            </div>
+
+            <div class="form-field">
+              <label for="v-occupation">Occupation <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="v-occupation" name="occupation" autocomplete="organization-title" required>
+              <p class="field-error">Please enter your occupation.</p>
+            </div>
+
+            <div class="form-field">
+              <label for="v-skills">Skills</label>
+              <input type="text" id="v-skills" name="skills" placeholder="e.g. Nursing, teaching, driving, event planning">
+              <p class="form-hint">Optional — list any skills you'd love to contribute.</p>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="v-why">Why do you want to volunteer? <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="v-why" name="motivation" required></textarea>
+              <p class="field-error">Please share a few words about your motivation.</p>
+            </div>
+          </div>
+
+          <button class="btn btn--primary" type="submit" style="margin-top: 2rem;">Register as a volunteer</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
