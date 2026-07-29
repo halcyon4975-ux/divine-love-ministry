@@ -113,7 +113,51 @@
     }
   }
 
+
+const liveRegion = document.getElementById("copy-live-region");
+
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      const originalLabel = btn.querySelector("span:last-child").textContent;
+
+      btn.addEventListener("click", async () => {
+        const value = btn.dataset.copyValue;
+        if (!value) return;
+
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(value);
+          } else {
+            const tempInput = document.createElement("textarea");
+            tempInput.value = value;
+            tempInput.style.position = "fixed";
+            tempInput.style.opacity = "0";
+            document.body.appendChild(tempInput);
+            tempInput.focus();
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+          }
+
+          const label = btn.querySelector("span:last-child");
+          btn.classList.add("is-copied");
+          label.textContent = "Copied!";
+          if (liveRegion) liveRegion.textContent = "Copied to clipboard.";
+
+          setTimeout(() => {
+            btn.classList.remove("is-copied");
+            label.textContent = originalLabel;
+          }, 2000);
+        } catch (err) {
+          if (liveRegion) liveRegion.textContent = "Couldn't copy automatically — please copy it manually.";
+        }
+      });
+    });
+  
+  
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("footer-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
+
+

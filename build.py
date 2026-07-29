@@ -5,8 +5,8 @@ import pathlib
 ROOT = pathlib.Path(__file__).parent
 P = ROOT / "partials"
 
-header = (P / "header.html").read_text()
-footer = (P / "footer.html").read_text()
+header = (P / "header.html").read_text(encoding="utf-8")
+footer = (P / "footer.html").read_text(encoding="utf-8")
 
 PAGES = {
     "index":     ("home",     "Divine Love Ministry — Empowering Communities, Enhancing Lives",
@@ -54,7 +54,7 @@ TEMPLATE = """<!DOCTYPE html>
 """
 
 for slug, (page_key, title, description, extra_js) in PAGES.items():
-    body = (P / f"page-{slug}.html").read_text()
+    body = (P / f"page-{slug}.html").read_text(encoding="utf-8")
 
     # Mark the current page in the nav
     page_header = header.replace(
@@ -75,5 +75,5 @@ for slug, (page_key, title, description, extra_js) in PAGES.items():
         scripts=scripts,
     )
 
-    (ROOT / f"{slug}.html").write_text(html)
+    (ROOT / f"{slug}.html").write_text(html, encoding="utf-8")
     print(f"built {slug}.html")

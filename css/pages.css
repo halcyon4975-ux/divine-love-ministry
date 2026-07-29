@@ -729,6 +729,44 @@
 .lightbox__nav--prev { left: 1rem; }
 .lightbox__nav--next { right: 1rem; }
 
+
+
+/*what people say*/
+.testimonial__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.testimonial__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.testimonial figcaption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.testimonial__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial blockquote {
+  margin: 0;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+
+
 /* =========================================================
    FORMS (volunteer + contact)
    ========================================================= */
@@ -914,68 +952,222 @@
   .impact-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-.donate-steps {
-  display: grid;
-  gap: var(--sp-3);
-  counter-reset: dstep;
-  max-width: 760px;
+
+
+
+  /* ---------- Payment methods section ---------- */
+    .pay-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-5);
+    }
+
+    .pay-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-4);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .pay-card__head {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+
+    .pay-card__icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--violet-700);
+    }
+
+    .pay-card--bank .pay-card__icon {
+background: var(--blue-50);
+      color: var(--blue-600);
+    }
+
+    .pay-card__icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .pay-card__head h3 {
+      margin: 0;
+      font-size: var(--fs-md);
+    }
+
+    .pay-card__head p {
+      margin: 0.15rem 0 0;
+      color: var(--ink-soft);
+      font-size: var(--fs-sm);
+    }
+
+    .pay-details {
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: var(--sp-3);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .pay-detail-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-2);
+    }
+
+    .pay-detail-row__text {
+      min-width: 0;
+    }
+
+    .pay-detail-row__label {
+      display: block;
+      font-size: var(--fs-xs);
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.15rem;
+    }
+
+    .pay-detail-row__value {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--fs-base);
+      color: var(--charcoal);
+      overflow-wrap: break-word;
+    }
+
+    .copy-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid var(--gray-300);
+      background: var(--white);
+      color: var(--violet-700);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--fs-xs);
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background var(--ease) 0.15s, border-color var(--ease) 0.15s, transform var(--ease) 0.15s;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      background: var(--violet-50);
+      border-color: var(--violet-600);
+    }
+
+    .copy-btn:active {
+      transform: scale(0.96);
+    }
+
+    .copy-btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .copy-btn.is-copied {
+      background: var(--violet-700);
+      border-color: var(--violet-700);
+      color: var(--white);
+    }
+
+    .pay-card__steps {
+      margin: 0;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: var(--fs-sm);
+      color: var(--ink-soft);
+    }
+
+    .pay-card__steps li::marker {
+      color: var(--violet-600);
+      font-weight: 700;
+    }
+
+
+
+    .pay-note {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: var(--sp-2) var(--sp-3);
+      font-size: var(--fs-xs);
+      color: var(--ink-soft);
+    }
+
+    .pay-note svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+      color: var(--gold-500);
+    }
+
+    .pay-card__icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.donate-steps li {
-  counter-increment: dstep;
-  display: flex;
-  gap: var(--sp-2);
-  align-items: flex-start;
+.pay-card__icon img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    display: block;
 }
 
-.donate-steps li::before {
-  content: counter(dstep);
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--violet-700);
-  color: var(--white);
-  font-family: var(--font-display);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .copy-live-region {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
 
-.donate-steps h3 {
-  font-size: var(--fs-md);
-}
+    @media (max-width: 640px) {
+      .pay-detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .copy-btn {
+        align-self: stretch;
+        justify-content: center;
+      }
+    }
 
-.donate-steps p {
-  color: var(--ink-soft);
-  font-size: var(--fs-sm);
-  margin-top: 0.25rem;
-}
 
-.paystack-note {
-  border: 1.5px dashed var(--gray-300);
-  background: var(--violet-50);
-  border-radius: var(--radius-lg);
-  padding: var(--sp-4);
-  display: flex;
-  gap: var(--sp-2);
-  align-items: flex-start;
-  max-width: 760px;
-}
 
-.paystack-note svg {
-  width: 28px;
-  height: 28px;
-  color: var(--violet-700);
-  flex-shrink: 0;
-}
 
-.paystack-note p {
-  color: var(--ink-soft);
-  font-size: var(--fs-sm);
-  margin-top: 0.25rem;
-}
+
+
 
 /* =========================================================
    CONTACT page
