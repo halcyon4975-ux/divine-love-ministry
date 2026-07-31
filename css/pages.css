@@ -393,6 +393,34 @@
   font-family: var(--font-display);
 }
 
+/* Make partner logo images (including SVG) scale to fit their slot */
+.partner-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* NHIS logo: no border/background and hover highlight */
+.partner-slot--logo {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  overflow: visible;
+}
+
+.partner-slot--logo img {
+  transition: transform 220ms var(--ease), filter 220ms var(--ease), box-shadow 220ms var(--ease);
+  will-change: transform, filter;
+}
+
+.partner-slot--logo:hover img,
+.partner-slot--logo:focus img {
+  transform: scale(1.06);
+  box-shadow: 0 10px 30px rgba(31,41,55,0.12);
+}
+
 /* =========================================================
    Big call-to-action band
    ========================================================= */
@@ -1192,6 +1220,24 @@ background: var(--blue-50);
   height: 44px;
   color: var(--violet-700);
   opacity: 0.6;
+}
+
+/* Responsive embed for maps */
+.map-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.map-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Program detail rows (programs page) */
