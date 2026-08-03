@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://divinelove-ministry.org/sitemap.xml
