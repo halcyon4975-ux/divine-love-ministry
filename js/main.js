@@ -155,6 +155,168 @@ const liveRegion = document.getElementById("copy-live-region");
   
   
 
+  /* ---------- Event Details Modal ---------- */
+  const eventModal = document.getElementById("event-modal");
+
+  if (eventModal) {
+    const modalImage = document.getElementById("modal-event-image");
+    const modalTitle = document.getElementById("modal-event-title");
+    const modalDesc = document.getElementById("modal-event-desc");
+    const modalDate = document.getElementById("modal-event-date");
+    const modalLocation = document.getElementById("modal-event-location");
+    const modalInfo = document.getElementById("modal-event-info");
+    const modalCta = document.getElementById("modal-event-cta");
+    const closeButtons = eventModal.querySelectorAll("[data-modal-close]");
+
+    let lastFocusedElement = null;
+
+    const EVENTS_DATA = {
+      "health-outreach": {
+        title: "Health Outreach",
+        image: "images/events/health-outreach.jpg",
+        imageAlt: "Community members receiving health screening at a Divine Love Ministry outreach under a canopy",
+        desc: "Providing health screening, education, and basic healthcare support to selected communities.",
+        date: "To be announced",
+        location: "To be announced",
+        extra: "More details about this outreach will be announced by Divine Love Ministry.",
+        ctaText: "Contact Us",
+        ctaHref: "contact.html"
+      },
+      "nhis-renewal": {
+        title: "Free NHIS Renewal",
+        image: "images/events/nhis-renewal.jpg",
+        imageAlt: "Divine Love Ministry team registering community members for NHIS renewal at a community hospital",
+        desc: "Supporting residents in selected communities with free renewal of their National Health Insurance Scheme membership.",
+        date: "To be announced",
+        location: "To be announced",
+        extra: "More details about this outreach will be announced by Divine Love Ministry.",
+        ctaText: "Contact Us",
+        ctaHref: "contact.html"
+      },
+      "donation-orphanage": {
+        title: "Donation to Orphanages & the Aged",
+        image: "images/events/donation-orphanage.jpg",
+        imageAlt: "A Divine Love Ministry volunteer presenting essential items to an elderly woman in her community",
+        desc: "Providing essential items and support to orphanages and elderly people in need.",
+        date: "To be announced",
+        location: "To be announced",
+        extra: "More details about this outreach will be announced by Divine Love Ministry.",
+        ctaText: "Contact Us",
+        ctaHref: "contact.html"
+      }
+    };
+
+    const openEventModal = (eventKey, triggerBtn) => {
+      const data = EVENTS_DATA[eventKey];
+      if (!data) return;
+
+      lastFocusedElement = triggerBtn || document.activeElement;
+
+      if (modalTitle) modalTitle.textContent = data.title;
+      if (modalDesc) modalDesc.textContent = data.desc;
+      if (modalDate) modalDate.textContent = data.date;
+      if (modalLocation) modalLocation.textContent = data.location;
+      if (modalInfo) modalInfo.textContent = data.extra;
+      if (modalImage) {
+        modalImage.src = data.image;
+        modalImage.alt = data.imageAlt || data.title;
+      }
+      if (modalCta) {
+        modalCta.textContent = data.ctaText || "Contact Us";
+        modalCta.href = data.ctaHref || "contact.html";
+      }
+
+      eventModal.classList.add("is-open");
+      eventModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      const closeBtn = eventModal.querySelector(".modal__close");
+      if (closeBtn) {
+        closeBtn.focus();
+      } else {
+        eventModal.focus();
+      }
+    };
+
+    const closeEventModal = () => {
+      if (!eventModal.classList.contains("is-open")) return;
+      eventModal.classList.remove("is-open");
+      eventModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+    };
+
+    // Open handlers for event buttons
+    document.querySelectorAll(".event-card__btn, [data-event]").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const card = btn.closest(".event-card");
+        let eventKey = btn.dataset.event;
+        if (!eventKey && card && card.id) {
+          eventKey = card.id.replace("event-", "");
+        }
+        if (eventKey && EVENTS_DATA[eventKey]) {
+          openEventModal(eventKey, btn);
+        }
+      });
+    });
+
+    // Close handlers (close buttons & overlay)
+    closeButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        closeEventModal();
+      });
+    });
+
+    // Close on click outside dialog content
+    eventModal.addEventListener("click", (e) => {
+      if (e.target === eventModal || e.target.classList.contains("modal__overlay")) {
+        closeEventModal();
+      }
+    });
+
+    // Keyboard navigation (Escape to close, Tab to trap focus)
+    document.addEventListener("keydown", (e) => {
+      if (!eventModal.classList.contains("is-open")) return;
+
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeEventModal();
+        return;
+      }
+
+      if (e.key === "Tab") {
+        const focusableElements = eventModal.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const focusable = Array.from(focusableElements).filter(
+          (el) => !el.hasAttribute("disabled") && el.offsetParent !== null
+        );
+
+        if (!focusable.length) return;
+
+        const firstElement = focusable[0];
+        const lastElement = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement || document.activeElement === eventModal) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    });
+  }
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("footer-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
