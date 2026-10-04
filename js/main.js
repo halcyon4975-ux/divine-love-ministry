@@ -316,6 +316,58 @@ const liveRegion = document.getElementById("copy-live-region");
       }
     });
   }
+  /* ---------- Homepage Announcement Popup ---------- */
+  const annPopup = document.getElementById('announcement-popup');
+  const annPopupClose = document.getElementById('ann-popup-close');
+  const annPopupOverlay = document.getElementById('ann-popup-overlay');
+  const annPopupCta = document.getElementById('ann-popup-cta');
+  const POPUP_SESSION_KEY = 'divineLoveEventPopupShown';
+
+  if (annPopup) {
+    const hasSeenPopup = sessionStorage.getItem(POPUP_SESSION_KEY);
+
+    const closeAnnPopup = () => {
+      annPopup.classList.remove('is-open');
+      annPopup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      sessionStorage.setItem(POPUP_SESSION_KEY, 'true');
+    };
+
+    if (!hasSeenPopup) {
+      // Small delay for better UX on load
+      setTimeout(() => {
+        annPopup.classList.add('is-open');
+        annPopup.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (annPopupClose) annPopupClose.focus();
+      }, 500);
+    }
+
+    if (annPopupClose) {
+      annPopupClose.addEventListener('click', closeAnnPopup);
+    }
+
+    if (annPopupOverlay) {
+      annPopupOverlay.addEventListener('click', closeAnnPopup);
+    }
+
+    if (annPopupCta) {
+      annPopupCta.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeAnnPopup();
+        const targetSection = document.getElementById('upcoming-events');
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && annPopup.classList.contains('is-open')) {
+        closeAnnPopup();
+      }
+    });
+  }
 
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("footer-year");

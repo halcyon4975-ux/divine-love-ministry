@@ -235,7 +235,7 @@
   </section>
 
   <!-- ================= UPCOMING EVENTS ================= -->
-  <section class="section section--tint" aria-labelledby="events-title">
+  <section id="upcoming-events" class="section section--tint" aria-labelledby="events-title">
     <div class="container">
       <div class="section-head section-head--center reveal">
         <p class="eyebrow">
@@ -382,9 +382,9 @@
               <div class="pay-detail-row">
                 <span class="pay-detail-row__text">
                   <span class="pay-detail-row__label">Number</span>
-                  <span class="pay-detail-row__value" id="activity-momo-number">0244 238 575</span>
+                  <span class="pay-detail-row__value" id="activity-momo-number">0249 978 365</span>
                 </span>
-                <button type="button" class="copy-btn" data-copy-target="activity-momo-number" data-copy-value="0244238575" aria-label="Copy Mobile Money number">
+                <button type="button" class="copy-btn" data-copy-target="activity-momo-number" data-copy-value="0249 978 365" aria-label="Copy Mobile Money number">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
                   <span>Copy Number</span>
                 </button>
@@ -423,7 +423,7 @@
       <!-- Update these figures with your official numbers when available -->
       <div class="stats-grid">
         <div class="stat reveal">
-          <p class="stat__number" data-count-to="4" data-count-suffix="+">4+</p>
+          <p class="stat__number" data-count-to="5" data-count-suffix="+">5+</p>
           <p class="stat__label">Communities registered for NHIS</p>
         </div>
         <div class="stat reveal reveal-delay-1">
@@ -431,7 +431,7 @@
           <p class="stat__label">Years of continuous service</p>
         </div>
         <div class="stat reveal reveal-delay-2">
-          <p class="stat__number" data-count-to="6" data-count-suffix="">6</p>
+          <p class="stat__number" data-count-to="7" data-count-suffix="">7</p>
           <p class="stat__label">Active community programs</p>
         </div>
         <div class="stat reveal reveal-delay-3">
@@ -649,9 +649,7 @@
         </svg>
       </button>
 
-      <div class="modal__media">
-        <img id="modal-event-image" src="images/events/health-outreach.jpg" alt="" loading="lazy">
-      </div>
+      
 
       <div class="modal__content">
         <h2 id="modal-event-title" class="modal__title">Health Outreach</h2>
@@ -684,6 +682,81 @@
           <a id="modal-event-cta" href="contact.html" class="btn btn--primary">Contact Us</a>
           <button type="button" class="btn btn--outline" data-modal-close>Close</button>
         </div>
+      </div>
+    </div>
+  </div>
+  <!-- ================= HOMEPAGE ANNOUNCEMENT POPUP ================= -->
+  <div
+    id="announcement-popup"
+    class="ann-popup"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="ann-popup-title"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <div class="ann-popup__overlay" id="ann-popup-overlay"></div>
+    <div class="ann-popup__box" role="document">
+
+      <button
+        type="button"
+        class="ann-popup__close"
+        id="ann-popup-close"
+        aria-label="Close announcement"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="ann-popup__body">
+
+        <p class="ann-popup__eyebrow">
+          <svg viewBox="0 0 30 18" aria-hidden="true" focusable="false">
+            <g fill="none" stroke-linecap="round" stroke-width="3">
+              <polyline points="3,12 12,4 21,12" stroke="#2ba6de"/>
+              <line x1="8" y1="16" x2="26" y2="7" stroke="currentColor"/>
+            </g>
+          </svg>
+          Upcoming Events
+        </p>
+
+        <h2 id="ann-popup-title" class="ann-popup__title">Join Us in Our Upcoming Activities</h2>
+
+        <p class="ann-popup__desc">Divine Love Ministry continues to serve communities through healthcare, community support, and outreach initiatives.</p>
+
+        <ul class="ann-popup__list" role="list">
+          <li class="ann-popup__list-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0 1 12 6.4 5.4 5.4 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9z"/>
+            </svg>
+            Health Outreach
+          </li>
+          <li class="ann-popup__list-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0 1 12 6.4 5.4 5.4 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9z"/>
+            </svg>
+            Free NHIS Renewal
+          </li>
+          <li class="ann-popup__list-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0 1 12 6.4 5.4 5.4 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9z"/>
+            </svg>
+            Donation to Orphanages &amp; the Aged
+          </li>
+        </ul>
+
+        <div class="ann-popup__actions">
+          <button type="button" class="btn btn--primary ann-popup__cta" id="ann-popup-cta">
+            View Upcoming Events
+          </button>
+        </div>
+
       </div>
     </div>
   </div>

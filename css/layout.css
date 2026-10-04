@@ -399,3 +399,42 @@
   }
 }
 
+/* ---------- Homepage announcement popup — layout & structure ---------- */
+.ann-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-3);
+  /* hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease), visibility 0.28s;
+}
+
+.ann-popup.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.ann-popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 18, 43, 0.6);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.ann-popup__box {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  max-height: min(92vh, 700px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
