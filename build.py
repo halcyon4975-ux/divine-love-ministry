@@ -44,7 +44,7 @@ TEMPLATE = """<!DOCTYPE html>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/pages.css">
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="images/favic.jpg">
 </head>
 <body>
 {header}
